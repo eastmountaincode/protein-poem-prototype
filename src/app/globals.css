@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Mol* viewer styles */
+.msp-plugin {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.msp-viewport-host {
+  background: transparent !important;
+}
+
+/* Hide Mol* UI elements we don't need */
+.msp-layout-top,
+.msp-layout-left,
+.msp-layout-right,
+.msp-layout-bottom {
+  display: none !important;
+}
+
+.msp-layout-main {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
