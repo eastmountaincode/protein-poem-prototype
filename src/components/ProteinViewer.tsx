@@ -9,6 +9,7 @@ const ProteinViewer = () => {
   const showRotationDisplay = false;
   
   const containerRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stageRef = useRef<any>(null);
 
     useEffect(() => {
@@ -32,8 +33,9 @@ const ProteinViewer = () => {
             stageRef.current = stage;
 
             try {
-                // Load the protein structure
-                const component = await stage.loadFile('/pdb/5hlr.cif') as any;
+                        // Load the protein structure
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const component = await stage.loadFile('/pdb/5hlr.cif') as any;
 
                         // Add a cartoon representation
         component.addRepresentation('cartoon', {
@@ -126,6 +128,7 @@ const ProteinViewer = () => {
                  // Track mouse position for tooltip
                  let mouseX = 0;
                  let mouseY = 0;
+                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                  let currentHighlight: any = null;
                  let currentHighlightChain: string | null = null;
                  
@@ -150,6 +153,7 @@ const ProteinViewer = () => {
                  });
                  
                  // Add hover functionality to show chain/segment info and highlight
+                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                  stage.signals.hovered.add(function (pickingProxy: any) {
                    if (pickingProxy && pickingProxy.atom) {
                      const atom = pickingProxy.atom;
@@ -209,7 +213,7 @@ const ProteinViewer = () => {
                 stageRef.current.dispose();
             }
         };
-    }, []);
+    }, [showRotationDisplay]);
 
       return (
           <div 
